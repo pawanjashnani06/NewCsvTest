@@ -8,5 +8,6 @@ dependencies:
     - docker build --rm=false -t greenbankstub .
 deployment:
   dev:
+    branch: chore/circleci-build
     commands:
       - ./deploy.sh
