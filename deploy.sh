@@ -11,7 +11,7 @@ configure_aws_cli(){
 
 
 push_ecr_image(){
-	eval $(aws ecr get-login --no-include-email --region ap-southeast-1)
+	eval $(aws ecr get-login --region ap-southeast-1)
 	docker tag greenbankstub $AWS_ACCOUNT_ID.dkr.ecr.ap-southeast-1.amazonaws.com/greenbankstub:$CIRCLE_SHA1
 	docker push $AWS_ACCOUNT_ID.dkr.ecr.ap-southeast-1.amazonaws.com/greenbankstub:$CIRCLE_SHA1
 }
