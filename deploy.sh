@@ -15,34 +15,14 @@ deploy_cluster() {
 
     make_task_def
     register_definition
-    if [[ $(aws ecs update-service --cluster greenbankstub --service greenbank-service --task-definition $revision | \
-                   $JQ '.service.taskDefinition') != $revision ]]; then
-        echo "Error updating service."
-        return 1
-    fi
-
-    # wait for older revisions to disappear
-    # not really necessary, but nice for demos
-    for attempt in {1..30}; do
-        if stale=$(aws ecs describe-services --cluster greenbankstub --services greenbank-service | \
-                       $JQ ".services[0].deployments | .[] | select(.taskDefinition != \"$revision\") | .taskDefinition"); then
-            echo "Waiting for stale deployments:"
-            echo "$stale"
-            sleep 5
-        else
-            echo "Deployed!"
-            return 0
-        fi
-    done
-    echo "Service update took too long."
-    return 1
+		aws ecs update-service --cluster greenbankstub --service greenbank-service --task-definition ${family}:${task_revision} --desired-count 2 > /dev/null
 }
 
 make_task_def(){
 	task_template='[
 		{
 			"name": "greenbankstub-container",
-			"image": "365228081331.dkr.ecr.ap-southeast-1.amazonaws.com/greenbankstub",
+			"image": "365228081331.dkr.ecr.ap-southeast-1.amazonaws.com/greenbankstub:'${CIRCLE_SHA1}'",
 			"essential": true,
 			"memory": 500,
 			"cpu": 10,
@@ -60,7 +40,7 @@ make_task_def(){
 			]
 		}
 	]'
-
+  echo $task_template
 	task_def=$(printf "$task_template" $AWS_ACCOUNT_ID $CIRCLE_SHA1)
 }
 
@@ -72,7 +52,8 @@ register_definition() {
         echo "Failed to register task definition"
         return 1
     fi
-
+		task_revision=`aws ecs describe-task-definition --task-definition greenbankstub-task | egrep "revision" | tr "/" " " | awk '{print $2}' | sed 's/"$//'`
+    DESIRED_COUNT=`aws ecs describe-services  --cluster greenbankstub --services greenbank-service | egrep "desiredCount" | tr "/" " " | awk '{print $2}' | sed 's/,$//'`
 }
 push_ecr_image(){
 	eval $(aws ecr get-login --region ap-southeast-1)
