@@ -15,7 +15,28 @@ deploy_cluster() {
 
     make_task_def
     register_definition
-		aws ecs update-service --cluster greenbankstub --service greenbank-service --task-definition ${family}:${task_revision} --desired-count 2 > /dev/null
+		# aws ecs update-service --cluster greenbankstub --service greenbank-service --task-definition ${family}:${task_revision} --desired-count 2 > /dev/null
+		if [[ $(aws ecs update-service --cluster greenbankstub --service greenbank-service --task-definition ${family}:${task_revision} | \
+								 $JQ '.service.taskDefinition') != $revision ]]; then
+			echo "Error updating service."
+			return 1
+	fi
+
+	# wait for older revisions to disappear
+	# not really necessary, but nice for demos
+	for attempt in {1..30}; do
+			if stale=$(aws ecs describe-services --cluster greenbankstub --service greenbank-service | \
+										 $JQ ".services[0].deployments | .[] | select(.taskDefinition != \"$revision\") | .taskDefinition"); then
+					echo "Waiting for stale deployments:"
+					echo "$stale"
+					sleep 5
+			else
+					echo "Deployed!"
+					return 0
+			fi
+	done
+	echo "Service update took too long."
+	return 1
 }
 
 make_task_def(){
