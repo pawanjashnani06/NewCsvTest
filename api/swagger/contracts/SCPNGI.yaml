@@ -5,14 +5,14 @@ info:
   title: SCP NGI API
   x-ibm-name: scp-ngi-api
   description: ""
-basePath: /clients/nginvestments
 paths:
   /investornumber:
     get:
       tags: []
       summary: ""
-      description: Verifies that we can do investment servicing for this client and
-        returns an investment number
+      description: Verifies that we can do investment servicing for this client and returns an investment number
+      x-swagger-router-controller: scp_ngi
+      operationId: investorNumber
       parameters:
       - description: ""
         name: Authorization
@@ -28,13 +28,13 @@ paths:
         204:
           description: No Content
       deprecated: false
-      security:
-      - API Key: []
   /linkedsourceoffunds/{investornumber}:
     get:
       tags: []
       summary: ""
       description: Gets any linked sources of funds for the client
+      x-swagger-router-controller: scp_ngi
+      operationId: linkedSourceOfFunds
       parameters:
       - description: ""
         name: Authorization
@@ -74,15 +74,13 @@ paths:
         204:
           description: No Content
       deprecated: false
-      security:
-      - API Key: []
-      produces:
-      - application/json
   /fundsourcedescriptions:
     get:
       tags: []
       summary: ""
       description: Gets the permissible fund source descriptions
+      x-swagger-router-controller: scp_ngi
+      operationId: fundSourceDescriptions
       parameters:
       - description: ""
         name: Authorization
@@ -100,15 +98,12 @@ paths:
         204:
           description: No Content
       deprecated: false
-      security:
-      - API Key: []
-      produces:
-      - application/json
   /permissibletransaction:
     post:
       tags: []
       summary: Checks if the client is allowed to submit transactions
       description: ""
+      x-swagger-router-controller: scp_ngi_permissibletransaction
       parameters:
       - schema:
           $ref: '#/definitions/InvestmentTransaction'
@@ -123,21 +118,21 @@ paths:
       responses:
         200:
           description: OK
+          schema:
+            title: permissibletransaction
+            type: object
         400:
           description: Bad request
           schema:
             title: Rejection reasons
             type: string
       deprecated: false
-      security:
-      - API Key: []
-      consumes:
-      - application/json
   /transaction:
     post:
       tags: []
       summary: Validates or actions a submitted transaction
       description: ""
+      x-swagger-router-controller: scp_ngi_transaction
       parameters:
       - schema:
           $ref: '#/definitions/InvestmentTransaction'
@@ -152,16 +147,15 @@ paths:
       responses:
         200:
           description: OK
+          schema:
+            title: permissibletransaction
+            type: object
         400:
           description: Bad Request
           schema:
             title: Rejection reasons
             type: string
       deprecated: false
-      security:
-      - API Key: []
-      consumes:
-      - application/json
 definitions:
   LinkedFundSource:
     properties:
@@ -215,11 +209,7 @@ definitions:
       validate:
         type: boolean
         description: If true the transaction will be validated and not executed
-schemes:
-- https
 tags: []
-security:
-- API Key: []
 x-ibm-configuration:
   enforced: true
   phase: realized
