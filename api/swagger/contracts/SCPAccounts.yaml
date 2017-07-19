@@ -170,8 +170,9 @@ paths:
     get:
       tags: []
       summary: ""
-      description: Gets 'Transaction' objects containing transaction details for all
-        accounts
+      description: Gets 'Transaction' objects containing transaction details for all accounts
+      x-swagger-router-controller: scp_accounts
+      operationId: accountsTransactions
       parameters:
       - description: end date for filter
         name: EndDate
@@ -311,6 +312,8 @@ paths:
       tags: []
       summary: Updates transactions for a user
       description: ""
+      x-swagger-router-controller: scp_accounts
+      operationId: accountsTransactionsForPost
       parameters:
       - schema:
           title: Transactions
@@ -349,12 +352,13 @@ paths:
       deprecated: false
       produces:
       - application/json
-  /accounts/transactions/{accountnumber}:
+  /scp/accounts/transactions/{accountnumber}:
     get:
       tags: []
       summary: ""
-      description: Gets 'Transaction' objects containing transaction details for a
-        specific account
+      description: Gets 'Transaction' objects containing transaction details for a specific account
+      x-swagger-router-controller: scp_accounts
+      operationId: accountNumberTransactions
       parameters:
       - name: startdate
         required: false
