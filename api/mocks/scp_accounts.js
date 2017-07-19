@@ -588,4 +588,3 @@ function accountNumberTransactions (req, res, next) {
     ]
   ])
 }
-
