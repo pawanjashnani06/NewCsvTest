@@ -52,6 +52,234 @@ function beneficiariesDetailsGet (req, res, next) {
             'customerName': 'John Dow',
             'customerAddress': 'Address Details'
           }
+        },
+        {
+          'beneficiaryID': 2,
+          'bfTypeID': 'ALL',
+          'bfType': 'BDF',
+          'bfState': 'ACT',
+          'bfName': 'Mark Twain',
+          'bank': 'Green Bank',
+          'sortCode': '001101',
+          'acctType': 'BD',
+          'acctNumber': '787970102030',
+          'defaultDrNarrative': 'My Statement Details',
+          'defaultCrNarrative': 'My Beneficiary Statements',
+          'instantPayment': true,
+          'creditCard': true,
+          'notificationDetails': [
+            {
+              'notificationType': 'NONE',
+              'notificationAddress': '',
+              'notificationId': 1,
+              'notificationDefaultInd': true
+            }
+          ],
+          'bfRecentPayDetail': [
+            {
+              'paymentDate': '2017-07-11',
+              'paymentAmount': 1,
+              'acctNumber': '787970102030',
+              'paymentDRNarration': 'Debit statement',
+              'paymentCRNarration': 'Credit statement',
+              'execEngineRef': ''
+            }
+          ],
+          'ElectricityMeterDetails': {
+            'municipality': 'Area Code',
+            'customerName': 'John Dow',
+            'customerAddress': 'Address Details'
+          }
+        },
+        {
+          'beneficiaryID': 3,
+          'bfTypeID': 'ALL',
+          'bfType': 'BDF',
+          'bfState': 'ACT',
+          'bfName': 'Mark Twain',
+          'bank': 'Green Bank',
+          'sortCode': '001101',
+          'acctType': 'BD',
+          'acctNumber': '787970102030',
+          'defaultDrNarrative': 'My Statement Details',
+          'defaultCrNarrative': 'My Beneficiary Statements',
+          'instantPayment': true,
+          'creditCard': true,
+          'notificationDetails': [
+            {
+              'notificationType': 'NONE',
+              'notificationAddress': '',
+              'notificationId': 1,
+              'notificationDefaultInd': true
+            }
+          ],
+          'bfRecentPayDetail': [
+            {
+              'paymentDate': '2017-07-11',
+              'paymentAmount': 1,
+              'acctNumber': '787970102030',
+              'paymentDRNarration': 'Debit statement',
+              'paymentCRNarration': 'Credit statement',
+              'execEngineRef': ''
+            }
+          ],
+          'ElectricityMeterDetails': {
+            'municipality': 'Area Code',
+            'customerName': 'John Dow',
+            'customerAddress': 'Address Details'
+          }
+        },
+        {
+          'beneficiaryID': 3,
+          'bfTypeID': 'ALL',
+          'bfType': 'BDF',
+          'bfState': 'ACT',
+          'bfName': 'Adam Sandler',
+          'bank': 'Green Bank',
+          'sortCode': '001101',
+          'acctType': 'BD',
+          'acctNumber': '787970102030',
+          'defaultDrNarrative': 'My Statement Details',
+          'defaultCrNarrative': 'My Beneficiary Statements',
+          'instantPayment': true,
+          'creditCard': true,
+          'notificationDetails': [
+            {
+              'notificationType': 'NONE',
+              'notificationAddress': '',
+              'notificationId': 1,
+              'notificationDefaultInd': true
+            }
+          ],
+          'bfRecentPayDetail': [
+            {
+              'paymentDate': '2017-07-11',
+              'paymentAmount': 1,
+              'acctNumber': '787970102030',
+              'paymentDRNarration': 'Debit statement',
+              'paymentCRNarration': 'Credit statement',
+              'execEngineRef': ''
+            }
+          ],
+          'ElectricityMeterDetails': {
+            'municipality': 'Area Code',
+            'customerName': 'John Dow',
+            'customerAddress': 'Address Details'
+          }
+        },
+        {
+          'beneficiaryID': 3,
+          'bfTypeID': 'ALL',
+          'bfType': 'BDF',
+          'bfState': 'ACT',
+          'bfName': 'AA Smith',
+          'bank': 'Green Bank',
+          'sortCode': '001101',
+          'acctType': 'BD',
+          'acctNumber': '787970102030',
+          'defaultDrNarrative': 'My Statement Details',
+          'defaultCrNarrative': 'My Beneficiary Statements',
+          'instantPayment': true,
+          'creditCard': true,
+          'notificationDetails': [
+            {
+              'notificationType': 'NONE',
+              'notificationAddress': '',
+              'notificationId': 1,
+              'notificationDefaultInd': true
+            }
+          ],
+          'bfRecentPayDetail': [
+            {
+              'paymentDate': '2017-07-11',
+              'paymentAmount': 1,
+              'acctNumber': '787970102030',
+              'paymentDRNarration': 'Debit statement',
+              'paymentCRNarration': 'Credit statement',
+              'execEngineRef': ''
+            }
+          ],
+          'ElectricityMeterDetails': {
+            'municipality': 'Area Code',
+            'customerName': 'John Dow',
+            'customerAddress': 'Address Details'
+          }
+        },
+        {
+          'beneficiaryID': 3,
+          'bfTypeID': 'ALL',
+          'bfType': 'BDF',
+          'bfState': 'ACT',
+          'bfName': 'Black Stone',
+          'bank': 'Green Bank',
+          'sortCode': '001101',
+          'acctType': 'BD',
+          'acctNumber': '787970102030',
+          'defaultDrNarrative': 'My Statement Details',
+          'defaultCrNarrative': 'My Beneficiary Statements',
+          'instantPayment': true,
+          'creditCard': true,
+          'notificationDetails': [
+            {
+              'notificationType': 'NONE',
+              'notificationAddress': '',
+              'notificationId': 1,
+              'notificationDefaultInd': true
+            }
+          ],
+          'bfRecentPayDetail': [
+            {
+              'paymentDate': '2017-07-11',
+              'paymentAmount': 1,
+              'acctNumber': '787970102030',
+              'paymentDRNarration': 'Debit statement',
+              'paymentCRNarration': 'Credit statement',
+              'execEngineRef': ''
+            }
+          ],
+          'ElectricityMeterDetails': {
+            'municipality': 'Area Code',
+            'customerName': 'John Dow',
+            'customerAddress': 'Address Details'
+          }
+        },
+        {
+          'beneficiaryID': 3,
+          'bfTypeID': 'ALL',
+          'bfType': 'BDF',
+          'bfState': 'ACT',
+          'bfName': 'Bane',
+          'bank': 'Green Bank',
+          'sortCode': '001101',
+          'acctType': 'BD',
+          'acctNumber': '787970102030',
+          'defaultDrNarrative': 'My Statement Details',
+          'defaultCrNarrative': 'My Beneficiary Statements',
+          'instantPayment': true,
+          'creditCard': true,
+          'notificationDetails': [
+            {
+              'notificationType': 'NONE',
+              'notificationAddress': '',
+              'notificationId': 1,
+              'notificationDefaultInd': true
+            }
+          ],
+          'bfRecentPayDetail': [
+            {
+              'paymentDate': '2017-07-11',
+              'paymentAmount': 1,
+              'acctNumber': '787970102030',
+              'paymentDRNarration': 'Debit statement',
+              'paymentCRNarration': 'Credit statement',
+              'execEngineRef': ''
+            }
+          ],
+          'ElectricityMeterDetails': {
+            'municipality': 'Area Code',
+            'customerName': 'John Dow',
+            'customerAddress': 'Address Details'
+          }
         }
       ],
       'bfSortOrder': {
