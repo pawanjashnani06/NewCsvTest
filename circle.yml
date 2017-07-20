@@ -9,6 +9,11 @@ dependencies:
     - docker build --rm=false -t greenbankstub .
     - curl -fsSL https://goss.rocks/install | GOSS_DST=./goss sh
 
+test:
+  post:
+    - docker run -d --rm -v ${PWD}/goss:/tmp/goss --name gossed-container greenbankstub; sleep 5
+    - sudo lxc-attach -n "$(docker inspect --format "{{.Id}}" gossed-container)" -- bash -c '/tmp/goss/goss validate'
+
 deployment:
   dev:
     branch: master
