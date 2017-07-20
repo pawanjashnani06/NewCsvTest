@@ -6,11 +6,11 @@ port:
     listening: true
     ip:
     - '::'
-http:
-  http://localhost:10010/api/services/v1/test:
-    status: 403
-    allow-insecure: false
-    no-follow-redirects: false
-    timeout: 5000
-    body:
-    - '{"message":"access denied!","code":"server_error","statusCode":403}'
+#http:
+#  http://localhost:10010/api/services/v1/test:
+#    status: 403
+#    allow-insecure: false
+#    no-follow-redirects: false
+#    timeout: 5000
+#    body:
+#    - '{"message":"access denied!","code":"server_error","statusCode":403}'

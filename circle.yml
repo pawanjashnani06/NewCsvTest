@@ -11,8 +11,8 @@ dependencies:
 
 test:
   post:
-    - docker run -d --rm -v ${PWD}/goss:/tmp/goss --name gossed-container greenbankstub; sleep 5
-    - sudo lxc-attach -n "$(docker inspect --format "{{.Id}}" gossed-container)" -- bash -c '/tmp/goss/goss validate'
+    - docker run -d -v ${PWD}/goss:/goss --name gossed-container greenbankstub; sleep 10
+    - sudo lxc-attach -n "$(docker inspect --format "{{.Id}}" gossed-container)" -- sh -c '/goss/goss -g /goss/goss.yaml validate'
 
 deployment:
   dev:
